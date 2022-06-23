@@ -4,14 +4,14 @@ import Modal from 'react-modal';
 import { FaPlus } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicket, closeTicket } from '../features/tickets/ticketSlice';
-import { useParams, useNavigate } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import Spinner from '../components/Spinner';
 import {
 	getNotes,
 	createNote,
 	reset as notesReset,
 } from '../features/notes/noteSlice';
+import { useParams, useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
+import Spinner from '../components/Spinner';
 import NoteItem from '../components/NoteItem';
 
 const customStyles = {
@@ -105,8 +105,7 @@ function Ticket() {
 
 			{ticket.status !== 'closed' && (
 				<button onClick={openModal} className='btn'>
-					<FaPlus />
-					Add Note
+					<FaPlus /> Add Note
 				</button>
 			)}
 

@@ -24,14 +24,14 @@ export const register = createAsyncThunk(
 					error.response.data &&
 					error.response.data.message) ||
 				error.message ||
-				error.toString;
+				error.toString();
 
 			return thunkAPI.rejectWithValue(message);
 		}
 	},
 );
 
-// login user
+// Login user
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 	try {
 		return await authService.login(user);
@@ -39,7 +39,7 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 		const message =
 			(error.response && error.response.data && error.response.data.message) ||
 			error.message ||
-			error.toString;
+			error.toString();
 
 		return thunkAPI.rejectWithValue(message);
 	}
@@ -91,11 +91,11 @@ export const authSlice = createSlice({
 				state.message = action.payload;
 				state.user = null;
 			})
-
 			.addCase(logout.fulfilled, (state) => {
 				state.user = null;
 			});
 	},
 });
+
 export const { reset } = authSlice.actions;
 export default authSlice.reducer;

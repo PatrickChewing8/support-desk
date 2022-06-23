@@ -1,18 +1,15 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
-import { FaSignInAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { FaSignInAlt } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, reset } from '../features/auth/authSlice';
-import { useNavigate } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 
 function Login() {
 	const [formData, setFormData] = useState({
-		name: '',
 		email: '',
 		password: '',
-		password2: '',
 	});
 
 	const { email, password } = formData;
@@ -90,11 +87,10 @@ function Login() {
 							name='password'
 							value={password}
 							onChange={onChange}
-							placeholder='Enter your password'
+							placeholder='Enter password'
 							required
 						/>
 					</div>
-
 					<div className='form-group'>
 						<button className='btn btn-block'>Submit</button>
 					</div>

@@ -76,10 +76,11 @@ const createTicket = asyncHandler(async (req, res) => {
 	res.status(201).json(ticket);
 });
 
-// @desc    DElete ticket
+// @desc    Delete ticket
 // @route   DELETE /api/tickets/:id
 // @access  Private
 const deleteTicket = asyncHandler(async (req, res) => {
+	// Get user using the id in the JWT
 	const user = await User.findById(req.user.id);
 
 	if (!user) {
@@ -141,6 +142,6 @@ module.exports = {
 	getTickets,
 	getTicket,
 	createTicket,
-	updateTicket,
 	deleteTicket,
+	updateTicket,
 };

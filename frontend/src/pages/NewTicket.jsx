@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +35,7 @@ function NewTicket() {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		console.log(product);
 		dispatch(createTicket({ product, description }));
 	};
 
@@ -71,7 +71,7 @@ function NewTicket() {
 						>
 							<option value='iPhone'>iPhone</option>
 							<option value='Macbook Pro'>Macbook Pro</option>
-							<option value='iMack'>iMac</option>
+							<option value='iMac'>iMac</option>
 							<option value='iPad'>iPad</option>
 						</select>
 					</div>
